@@ -46,8 +46,28 @@ namespace Util{
 }
 
 
+namespace Original{
+    std::vector<int> CreateArithmeticProgression( int a1, int n, int d ){
+        std::vector<int> progression( n );
+        progression[0] = a1;
+        for( int i = 1; i < n; i++ ){
+            progression[i] = progression[0] + (((i+1) - 1) * d);
+        }
+    return progression;
+    }
+}
+
 
 int main( int argc, char** argv ){
-    
+    int a1, n, d;
+    cin >> a1 >> n >> d;
+
+    auto progression = Original::CreateArithmeticProgression( a1, n, d );
+
+    for( int i = 0; i < n; i++ ){
+        cout << progression[i] << flush;
+        if( i != n - 1 ) cout << " " << flush;
+    }
+    cout << endl;
 return 0;
 }
